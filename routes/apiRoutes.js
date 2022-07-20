@@ -7,7 +7,7 @@ var noteContents;
 module.exports = function (app) {
 
   app.get("/api/notes", function (req, res) {
-    readFileAsync("/db/db.json", "utf8").then(function (data) {
+    readFileAsync("../db/db.json", "utf8").then(function (data) {
       noteContents = JSON.parse(data);
       res.json(noteContents);
     });
@@ -22,7 +22,7 @@ module.exports = function (app) {
     let newId = lastId + 1;
     newNote["id"] = newId;
     noteContents.push(newNote);
-    writeFileAsync("/db/db.json", JSON.stringify(noteContents)).then(
+    writeFileAsync("../db/db.json", JSON.stringify(noteContents)).then(
       function () {
         console.log("Note has been updated");
       }
@@ -36,7 +36,7 @@ module.exports = function (app) {
       if (chosenId === noteContents[i].id) {
         noteContents.splice(i, 1);
         let noteJSON = JSON.stringify(noteContents, null, 2);
-        writeFileAsync("/db/db.json", noteJSON).then(function () {
+        writeFileAsync("../db/db.json", noteJSON).then(function () {
           console.log("Note has been deleted");
         });
       }
