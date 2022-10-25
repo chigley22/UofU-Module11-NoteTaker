@@ -31,6 +31,9 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Contributing
 chigley22, and UofU starter code
+
+## Mock-Up
+![screenshot of note taker home page](./assets/notetakerscreenshot.png)
 ## Tests
 
 ## Questions
